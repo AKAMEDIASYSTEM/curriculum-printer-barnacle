@@ -25,25 +25,27 @@ class the_screen(object):
         # print(r.text)
         resp = req.json()
         print('encoding is',req.encoding)
-        keyword = resp['data']['noun_phrase']
-        print(keyword, 'utf-8')
-        try:
-            t = keyword.decode('utf-8','ignore')
-        except UnicodeEncodeError:
-            print(keyword)
-            print('ERROR IN ABOVE LINE')
-            t = keyword.encode('utf-8','ignore')
+        keywords = resp['data']['noun_phrase']
+        print(keywords)
+        # try:
+        #     t = keywords.decode('utf-8','ignore')
+        # except UnicodeEncodeError:
+        #     print(keywords)
+        #     print('ERROR IN ABOVE LINE')
+        #     t = keywords.encode('utf-8','ignore')
 
         disp.clear_display()
         disp.fillScreen(BG_COLOR)
         i=3 # initial vertical offset
-        k = t.split('\n')
-        # a = ["really long sentence with lots of words","short thing", "really long thing again really long hello hello", "cat pajamas"]
-        print(k)
+        # keywords = ["really long sentence with lots of words","short thing", "really long thing again really long hello hello", "cat pajamas"]
         colorweird = False # we differently-color multiline entries
-        for p in k:
+        for p in keywords:
             buff = ""
             # disp.draw_text_bg(5, 5+i, p, TEXT_COLOR, BG_COLOR)
+            try:
+                p = p.decode('utf-8','ignore')
+            except UnicodeEncodeError:
+                p = p.encode('utf-8','ignore')
             for j in p.split(' '):
                 j += " "
                 if len(buff + j) > LINEWIDTH:
