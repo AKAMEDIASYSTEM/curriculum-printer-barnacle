@@ -66,7 +66,7 @@ class the_screen(object):
                     disp.draw_text_bg(0, i, buff, TEXT_COLOR, BG_COLOR)
                 i+=10
             i+=10
-        self.text = t
+        self.text = keywords
 
 oled = the_screen()
 
