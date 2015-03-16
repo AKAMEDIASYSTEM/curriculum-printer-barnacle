@@ -26,8 +26,7 @@ class the_screen(object):
         resp = req.json()
         print('encoding is',req.encoding)
         keyword = resp['data']['noun_phrase']
-        # print(keyword, 'utf-8')
-        print(t)
+        print(keyword, 'utf-8')
         try:
             t = keyword.decode('utf-8','ignore')
         except UnicodeEncodeError:
