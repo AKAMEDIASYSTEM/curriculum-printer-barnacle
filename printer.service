@@ -1,0 +1,13 @@
+[Unit]
+Description=AKA curriculum-printer-barnacle service
+
+[Service]
+Type=simple
+WorkingDirectory=/root/curriculum-printer-barnacle/
+ExecStart=/usr/bin/python printer.py
+KillMode=process
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
