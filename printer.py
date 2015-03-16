@@ -27,6 +27,7 @@ class the_screen(object):
         print('encoding is',req.encoding)
         keyword = resp['data']['noun_phrase']
         # print(keyword, 'utf-8')
+        print(t)
         try:
             t = keyword.decode('utf-8','ignore')
         except UnicodeEncodeError:
