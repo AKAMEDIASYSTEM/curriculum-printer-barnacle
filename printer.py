@@ -2,7 +2,6 @@
 from __future__ import print_function
 import Adafruit_BBIO.UART as uart
 import Adafruit_BBIO.GPIO as gpio
-from Adafruit_Thermal import *
 import requests
 import time
 import atexit
@@ -88,62 +87,7 @@ atexit.register(exit_handler)
 disp.begin()
 gpio.setup(button, gpio.IN)
 gpio.add_event_detect(button, gpio.FALLING, callback=ppp)
-uart.setup('UART1')
-# print('just began UART')
-printer = Adafruit_Thermal('/dev/ttyO1', 19200, timeout=5)
-printer.begin()
 keyword = u"" # does this solve the ridic encoding prob
-
-
-
-
-# def update_screens():
-#     req = requests.get(curriculum, params=payload)
-#     # print(r.text)
-#     resp = req.json()
-#     print('encoding is',req.encoding)
-#     keyword = resp['data']
-#     # print(keyword, 'utf-8')
-#     try:
-#         t = keyword.decode('utf-8','ignore')
-#     except UnicodeEncodeError:
-#         print(keyword)
-#         print('ERROR IN ABOVE LINE')
-#         t = keyword.encode('utf-8','ignore')
-
-#     disp.clear_display()
-#     disp.fillScreen(BG_COLOR)
-#     i=3 # initial vertical offset
-#     k = t.split('\n')
-#     # a = ["really long sentence with lots of words","short thing", "really long thing again really long hello hello", "cat pajamas"]
-#     print(k)
-#     colorweird = False # we differently-color multiline entries
-#     for p in k:
-#         buff = ""
-#         # disp.draw_text_bg(5, 5+i, p, TEXT_COLOR, BG_COLOR)
-#         for j in p.split(' '):
-#             j += " "
-#             if len(buff + j) > LINEWIDTH:
-#                 print('should wrap ', buff+j)
-#                 disp.draw_text_bg(0, i, buff, TEXT_COLOR+30, BG_COLOR)
-#                 colorweird = True
-#                 print(i)
-#                 i += 10
-#                 buff = " " + j
-#             else:
-#                 buff = buff + j
-#         if len(buff):
-#             print(i)
-#             if colorweird:
-#                 disp.draw_text_bg(0, i, buff, TEXT_COLOR+30, BG_COLOR)
-#                 colorweird = False
-#             else:
-#                 disp.draw_text_bg(0, i, buff, TEXT_COLOR, BG_COLOR)
-#             i+=10
-#         i+=10
-#     return t
-
-
 
 while True:
     oled.update_screens()
