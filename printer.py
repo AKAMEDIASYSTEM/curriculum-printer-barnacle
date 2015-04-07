@@ -82,5 +82,6 @@ disp.begin()
 keyword = u"" # does this solve the ridic encoding prob
 
 while True:
+    print('starting loop')
     oled.update_screens()
     time.sleep(30)
