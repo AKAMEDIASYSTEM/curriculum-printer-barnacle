@@ -1,6 +1,5 @@
 #!/usr/bin/env python
 from __future__ import print_function
-import Adafruit_BBIO.UART as uart
 import Adafruit_BBIO.GPIO as gpio
 import requests
 import time
@@ -72,23 +71,16 @@ oled = the_screen()
 def exit_handler():
     gpio.cleanup()
 
-def ppp(a):
-    # print('printing! %s' % r)
-    # printer.print(r)
-    # printer.print(oled.text)
-    # printer.feed(4)
-    pass
-
 curriculum = 'http://curriculum.local/api'
 payload = {'n':3} # three phrases
 # print('about to create disp')
 disp = ssd.SSD1351()
 atexit.register(exit_handler)
 disp.begin()
-gpio.setup(button, gpio.IN)
-gpio.add_event_detect(button, gpio.FALLING, callback=ppp)
+# gpio.setup(button, gpio.IN)
+# gpio.add_event_detect(button, gpio.FALLING, callback=ppp)
 keyword = u"" # does this solve the ridic encoding prob
 
 while True:
     oled.update_screens()
-    time.sleep(10)
+    time.sleep(30)
