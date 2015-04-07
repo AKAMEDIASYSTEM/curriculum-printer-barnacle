@@ -1,5 +1,6 @@
 [Unit]
 Description=AKA curriculum-printer-barnacle service
+After=network.target
 
 [Service]
 Type=simple
