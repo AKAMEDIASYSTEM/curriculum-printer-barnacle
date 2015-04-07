@@ -73,7 +73,7 @@ def exit_handler():
 
 curriculum = 'http://curriculum.local/api'
 payload = {'n':3} # three phrases
-# print('about to create disp')
+print('about to create disp')
 disp = ssd.SSD1351()
 atexit.register(exit_handler)
 disp.begin()
